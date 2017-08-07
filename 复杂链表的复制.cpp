@@ -15,11 +15,40 @@ class Solution
         if (pHead == NULL)
             return NULL;
 
-        for (RandomListNode *now = phead; now != NULL; now = now->next)
+        for (RandomListNode *now = pHead; now != NULL;)
         {
-            RandomListNode *head = new RandomListNode(pHead->label);
-            head->next = phead->next;
-            phead->next = head;
+            RandomListNode *node = new RandomListNode(now->label);
+            node->next = now->next;
+            now->next = node;
+
+            now = node->next;
         }
+
+        for (RandomListNode *now = pHead; now != NULL;)
+        {
+            RandomListNode *node = now->next;
+
+            if (now->random == NULL)
+                node->random = NULL;
+            else
+                node->random = now->random->next;
+
+            now = now->next->next;
+        }
+
+        RandomListNode *pHeadClone = pHead->next;
+        for (RandomListNode *now = pHead; now != NULL;)
+        {
+            RandomListNode *node = now->next;
+            now->next = node->next;
+            if (node->next == NULL)
+                node->next = NULL;
+            else
+                node->next = node->next->next;
+
+            now = now->next;
+        }
+
+        return pHeadClone;
     }
 };
