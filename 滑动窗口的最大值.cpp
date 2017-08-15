@@ -1,4 +1,4 @@
-// g++ 最小的K个数.cpp -o test -std=c++11; ./test
+// g++ 滑动窗口的最大值.cpp -o test -std=c++11; ./test
 #include <bits/stdc++.h>
 using namespace std;
 
