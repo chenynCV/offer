@@ -20,7 +20,7 @@ class Solution
         if (pNode->right != NULL)
         {
             TreeLinkNode *node = pNode->right;
-            while (node->lest != NULL)
+            while (node->left != NULL)
                 node = node->left;
 
             return node;
