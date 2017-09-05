@@ -29,12 +29,10 @@ map<int, int> Dijkstra(map<int, vector<pair<int, int>>> &G, set<int> &V, int sou
         Q.push(make_pair(i, dist[i]));
     }
 
-    int cnt = 0;
-    while (cnt < V.size())
+    while (!Q.empty())
     {
         int u = Q.top().first;
         Q.pop();
-        cnt++;
 
         vector<pair<int, int>> edge = G[u];
         for (auto edge : G[u])
